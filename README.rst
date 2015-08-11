@@ -58,7 +58,7 @@ Follow
 ::
 
     # Follow the file as it grows
-    for line in tailhead.follow('test.txt'):
+    for line in tailhead.follow_path('test.txt'):
         if line is not None:
             print(line)
         else:
