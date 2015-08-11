@@ -12,7 +12,7 @@ import os
 import re
 import sys
 
-from tailer.version import VERSION
+from tailhead.version import VERSION
 
 
 if sys.version_info < (3,):
@@ -30,7 +30,7 @@ else:
 __version__ = VERSION
 
 
-LOG = logging.getLogger('tailer')
+LOG = logging.getLogger('tailhead')
 
 
 class Tailer(object):

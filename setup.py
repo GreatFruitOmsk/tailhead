@@ -2,7 +2,7 @@ import os
 from setuptools import setup
 
 
-with open(os.path.join(os.path.dirname(__file__), 'tailer', 'version.py')) as f:
+with open(os.path.join(os.path.dirname(__file__), 'tailhead', 'version.py')) as f:
     VERSION = None
     code = compile(f.read(), 'version.py', 'exec')
     exec(code)
@@ -10,19 +10,20 @@ with open(os.path.join(os.path.dirname(__file__), 'tailer', 'version.py')) as f:
 
 
 setup(
-    name='tailer',
-    packages=['tailer'],
+    name='tailhead',
+    packages=['tailhead'],
     version=VERSION,
     author='Mike Thornton',
     author_email='six8@devdetails.com',
-    url='http://github.com/six8/pytailer',
-    download_url='http://github.com/six8/pytailer',
+    maintainer='Ilya Kulakov',
+    maintainer_email='kulakov.ilya@gmail.com',
+    url='https://github.com/GreatFruitOmsk/tailhead',
+    download_url='https://github.com/GreatFruitOmsk/tailhead/releases',
     license='MIT',
     keywords=['tail', 'head'],
     description='Python tail is a simple implementation of GNU tail and head.',
     classifiers=[
         "Programming Language :: Python",
-        "Development Status :: 3 - Alpha",
         "Environment :: Console",
         "Intended Audience :: Developers",
         "Intended Audience :: System Administrators",
@@ -38,6 +39,6 @@ setup(
     long_description=open('README.rst').read(),
     entry_points="""
     [console_scripts]
-    pytail=tailer.__main__:main
+    pytail=tailhead.__main__:main
     """
 )

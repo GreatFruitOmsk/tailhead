@@ -9,7 +9,7 @@ import locale
 import sys
 import time
 
-from tailer import head, tail, follow_path
+from tailhead import head, tail, follow_path
 
 
 def _test():

@@ -4,4 +4,4 @@ python:
   - "3.3"
   - "2.7"
   - "2.6"
-script: python -m doctest -v tailer/__init__.py
+script: python -m doctest -v tailhead/__init__.py
