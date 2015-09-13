@@ -21,7 +21,7 @@ setup(
     download_url='https://github.com/GreatFruitOmsk/tailhead/releases',
     license='MIT',
     keywords=['tail', 'head'],
-    description='Python tail is a simple implementation of GNU tail and head.',
+    description='tailhead is a simple implementation of GNU tail and head.',
     classifiers=[
         "Programming Language :: Python",
         "Environment :: Console",
@@ -35,6 +35,10 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: System :: System Shells",
         "Topic :: System :: Systems Administration",
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
     ],
     long_description=open('README.rst').read(),
     entry_points="""
