@@ -12,22 +12,19 @@ import os
 import re
 import sys
 
-from tailhead.version import VERSION
+from tailhead.version import VERSION as __version__
 
 
 if sys.version_info < (3,):
     range = xrange
 
 
-if sys.version_info < (2, 7):
+try:
+    from io import SEEK_SET, SEEK_CUR, SEEK_END
+except:
     SEEK_SET = 0
     SEEK_CUR = 1
     SEEK_END = 2
-else:
-    from io import SEEK_SET, SEEK_CUR, SEEK_END
-
-
-__version__ = VERSION
 
 
 LOG = logging.getLogger('tailhead')
@@ -380,7 +377,7 @@ def follow(file):
     return Tailer(file, end=True).follow()
 
 
-def follow_path(file_path, buffering=-1, encoding=None, errors=None):
+def follow_path(file_path, buffering=-1, encoding=None, errors='strict'):
     """
     Similar to follow, but also looks up if inode of file is changed
     e.g. if it was re-created.
@@ -420,9 +417,6 @@ def follow_path(file_path, buffering=-1, encoding=None, errors=None):
     """
     if encoding is None:
         encoding = locale.getpreferredencoding()
-
-    if not errors:
-        errors = 'strict'
 
     class FollowPathGenerator(object):
         def __init__(self):
