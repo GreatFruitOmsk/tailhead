@@ -4,7 +4,7 @@
 tailhead
 ======
 
-Python tail is a simple implementation of GNU tail and head. 
+Python tail is a simple implementation of GNU tail and head.
 
 It provides 3 main functions that can be performed on any file-like object that supports ``seek()`` and ``tell()``.
 
@@ -36,33 +36,34 @@ Examples
   for i in range(11):
       f.write('Line %d\\n' % (i + 1))
   f.close()
-    
+
 Tail
 ----
 ::
 
     # Get the last 3 lines of the file
-    tailhead.tail(open('test.txt'), 3)
-    # ['Line 9', 'Line 10', 'Line 11']
+    tailhead.tail(open('test.txt', 'rb'), 3)
+    # [b'Line 9', b'Line 10', b'Line 11']
 
 Head
 ----
 ::
 
     # Get the first 3 lines of the file
-    tailhead.head(open('test.txt'), 3)
-    # ['Line 1', 'Line 2', 'Line 3']
+    tailhead.head(open('test.txt', 'rb'), 3)
+    # [b'Line 1', b'Line 2', b'Line 3']
 
 Follow
 ------
 ::
 
-    # Follow the file as it grows
+    # Follow the file as it grows and handle file rotation if it occurs
+    import time
     for line in tailhead.follow_path('test.txt'):
         if line is not None:
             print(line)
         else:
-            # sleep
+            time.sleep(1)
 
 Running Tests
 =============
