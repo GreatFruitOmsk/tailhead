@@ -223,11 +223,17 @@ class Tailer(object):
         """
         Return the top lines of the file.
         """
-        self.file.seek(0)
 
-        for i in range(lines):
-            if self.seek_next_line() == -1:
-                break
+        if lines < 0:
+            self.file.seek(0, SEEK_END)
+            for i in range(-lines):
+                if self.seek_previous_line() == -1:
+                    break
+        else:
+            self.file.seek(0)
+            for i in range(lines):
+                if self.seek_next_line() == -1:
+                    break
     
         end_pos = self.file.tell()
         
@@ -337,7 +343,9 @@ def head(file, lines=10, read_size=1024):
     ...         _ = fw.write('\\r')
     ...         fw.flush()
     ...         head(fr, 6, 1)  # doctest: +ELLIPSIS
+    ...         head(fr, -2, 1)  # doctest: +ELLIPSIS
     [...'', ...'', ...'', ...'Line 1', ...'Line 2', ...'Line 3']
+    [...'', ...'', ...'', ...'Line 1', ...'Line 2', ...'Line 3', ...'Line 4']
     >>> os.remove('test_head.txt')
     """
     return Tailer(file, read_size).head(lines)
