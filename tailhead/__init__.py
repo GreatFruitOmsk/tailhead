@@ -222,6 +222,8 @@ class Tailer(object):
     def head(self, lines=10):
         """
         Return the top lines of the file.
+        If 'lines' is negative returns all but the last
+        'lines' of the file.
         """
 
         if lines < 0:
@@ -327,6 +329,8 @@ def tail(file, lines=10, read_size=1024):
 def head(file, lines=10, read_size=1024):
     """
     Return the top lines of the file.
+    If 'lines' is negative returns all but the last
+    'lines' of the file.
 
     >>> import io
     >>>
