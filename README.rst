@@ -53,6 +53,10 @@ Head
     tailhead.head(open('test.txt', 'rb'), 3)
     # [b'Line 1', b'Line 2', b'Line 3']
 
+    # Get all lines but last 6 lines of the file
+    tailhead.head(open('test.txt', 'rb'), -6)
+    # [b'Line 1', b'Line 2', b'Line 3', b'Line 4', b'Line 5']
+
 Follow
 ------
 ::
